@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import "./App.scss";
+
+import Task from "../../models/task";
+
+import Row from "../common/Row";
 
 import AddNew from "../add-new/";
 import List from "../list";
 
-import Row from "../common/Row";
-
-import Task from "../../models/task";
+import "./App.scss";
 
 interface State {
   tasks: Task[];

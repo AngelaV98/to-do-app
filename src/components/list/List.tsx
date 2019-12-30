@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Task from "../../models/task";
+
 import ListItem from "../list-item";
 import "./List.scss";
 

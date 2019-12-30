@@ -1,4 +1,6 @@
 export default interface Task {
-  id?: number;
+  id: number;
   title: string;
+  important: boolean;
+  done: boolean;
 }

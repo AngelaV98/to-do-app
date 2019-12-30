@@ -9,11 +9,15 @@ interface Props {
 interface State {
   id: number;
   title: string;
+  important: boolean;
+  done: boolean;
 }
 class AddNew extends Component<Props, State> {
   state = {
-    id: 0,
-    title: ""
+    id: 1,
+    title: "",
+    important: false,
+    done: false
   };
   constructor(props: Props) {
     super(props);
@@ -29,33 +33,36 @@ class AddNew extends Component<Props, State> {
   }
   onSubmit() {
     const { title } = this.state;
-    this.setState(({ id }) => ({
-      id: id + 1,
-      title: ""
-    }));
-    const { id } = this.state;
-    const newItem = { id, title };
-    this.props.onSubmit(newItem);
+    if (title) {
+      this.setState(({ id }) => ({
+        id: id + 1,
+        title: ""
+      }));
+      const { id } = this.state;
+      const newItem = { id, title, important: false, done: false };
+      this.props.onSubmit(newItem);
+    }
   }
   render() {
     return (
       <>
-        <div className="col-10">
+        <div className="col-12 col-lg-10 mt-1">
           <input
             type="text"
             className="form-control"
             autoFocus
             onChange={this.onChange}
+            value={this.state.title}
           />
         </div>
-        <div className="col-12 col-md-6 col-lg-1">
+        <div className="col-12 col-md-6 col-lg-1 mt-1">
           <button className="btn btn-success" onClick={this.onSubmit}>
-            +
+            <i className="fa fa-plus" />
           </button>
         </div>
-        <div className="col-12 col-md-6 col-lg-1">
+        <div className="col-12 col-md-6 col-lg-1 mt-1">
           <button className="btn btn-danger" onClick={this.onClear}>
-            Clear
+            <i className="fa fa-refresh" />
           </button>
         </div>
       </>

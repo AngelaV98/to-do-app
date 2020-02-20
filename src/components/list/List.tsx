@@ -19,13 +19,14 @@ class List extends Component<Props> {
       return <span className="text-danger ml-3 mt-3">No Items</span>;
     }
     return (
-      <ol className="list-group ml-3 mt-2 w-100">
+      <ol className="list-group mt-3 w-100">
         {tasks.map(({ id, title, important, done }) => (
           <ListItem
             title={title}
             important={important}
             done={done}
             id={id}
+            key={id}
             onCheck={onCheck}
             onDelete={onDelete}
             onDone={onDone}

@@ -8,6 +8,7 @@ import AddNew from "../add-new/";
 import List from "../list";
 
 import "./App.scss";
+import Header from "../header";
 
 interface State {
   tasks: Task[];
@@ -48,7 +49,7 @@ class App extends Component<{}, State> {
     }
   }
 
-  handleDone(id: number) {
+  private handleDone(id: number) {
     const { tasks } = this.state;
     if (tasks) {
       const newTasks = [...tasks];
@@ -65,6 +66,9 @@ class App extends Component<{}, State> {
     const { tasks } = this.state;
     return (
       <div className="App container">
+        <Row className="header">
+          <Header title="ToDo List" />
+        </Row>
         <Row className="addNew">
           <AddNew onSubmit={this.handleSubmit} />
         </Row>

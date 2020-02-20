@@ -51,6 +51,7 @@ class AddNew extends Component<Props, State> {
             type="text"
             className="form-control"
             autoFocus
+            placeholder="Add to do..."
             onChange={this.onChange}
             value={this.state.title}
           />

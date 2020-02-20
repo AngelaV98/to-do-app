@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 
+import "./App.scss";
+
 import Task from "../../models/task";
-
 import Row from "../common/Row";
-
 import AddNew from "../add-new/";
 import List from "../list";
-
-import "./App.scss";
 import Header from "../header";
 
 interface State {
